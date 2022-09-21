@@ -16,4 +16,11 @@ public class GestionController {
 	public Iterable<Room> getRooms() {
 		return roomRepo.findAll();
 	}
+	@GetMapping("/addRoom")
+		public void addRandomRoom() {
+			Room room = new Room();
+			room.setNumber(10);
+			
+			roomRepo.save(room);			
+		}
 }
