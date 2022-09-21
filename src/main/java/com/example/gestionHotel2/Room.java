@@ -1,6 +1,14 @@
 package com.example.gestionHotel2;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Room {
+	@Id
+	@GeneratedValue
+	private int roomId;
 	private int number;
 	private int size;
 	private int places;
@@ -22,6 +30,11 @@ public class Room {
 	public void setPlaces(int places) {
 		this.places = places;
 	}
-	
+	public int getRoomId() {
+		return roomId;
+	}
+	public void setRoomId(int rommId) {
+		this.roomId = roomId;
+	}
 	
 }

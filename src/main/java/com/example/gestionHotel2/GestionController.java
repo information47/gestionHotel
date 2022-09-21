@@ -1,17 +1,19 @@
 package com.example.gestionHotel2;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.gestionHotel2.sql.RoomRepo;
+
 @RestController
 public class GestionController {
-	@GetMapping("/room")
-	public Room returnRoom() {
-		Room room = new Room();
-		room.setNumber(1);
-		room.setSize(32);
-		room.setSize(2);
-		
-		return room;
+	
+	@Autowired
+	private RoomRepo roomRepo;
+	
+	@GetMapping("/rooms")
+	public Iterable<Room> getRooms() {
+		return roomRepo.findAll();
 	}
 }
